@@ -1,10 +1,10 @@
-package services;
+package pl.edu.ug.inf.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import entities.Customer;
-import entities.Product;
+import pl.edu.ug.inf.entities.Product;
+import pl.edu.ug.inf.entities.Customer;
 
 public class CustomerService implements CustomerServiceInterface {
 

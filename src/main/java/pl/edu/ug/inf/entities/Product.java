@@ -1,4 +1,4 @@
-package entities;
+package pl.edu.ug.inf.entities;
 public class Product {
 	private int id;
 	private String description;

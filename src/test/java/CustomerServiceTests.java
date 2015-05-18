@@ -1,14 +1,13 @@
-package tests;
-
 import static org.junit.Assert.*;
+
+
+import org.junit.Test;
+import pl.edu.ug.inf.entities.Customer;
+import pl.edu.ug.inf.services.CustomerService;
+import pl.edu.ug.inf.services.CustomerServiceInterface;
 
 import java.util.List;
 
-import org.junit.Test;
-
-import services.CustomerService;
-import services.CustomerServiceInterface;
-import entities.Customer;
 
 public class CustomerServiceTests {
 

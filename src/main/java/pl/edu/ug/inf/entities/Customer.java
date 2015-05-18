@@ -1,4 +1,4 @@
-package entities;
+package pl.edu.ug.inf.entities;
 import java.util.ArrayList;
 import java.util.List;
 

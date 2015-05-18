@@ -1,8 +1,8 @@
-package services;
+package pl.edu.ug.inf.services;
 import java.util.List;
 
-import entities.Customer;
-import entities.Product;
+import pl.edu.ug.inf.entities.Product;
+import pl.edu.ug.inf.entities.Customer;
 
 public interface CustomerServiceInterface {
 
