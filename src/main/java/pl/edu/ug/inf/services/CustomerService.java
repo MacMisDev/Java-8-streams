@@ -17,7 +17,7 @@ public class CustomerService implements CustomerServiceInterface {
 	@Override
 	public List<Customer> findByName(final String name) {
 		// TODO Auto-generated method stub
-		return customers.stream().filter(c -> c.getName() == name).collect(Collectors.toList());
+		return customers.stream().filter(c -> c.getName().equals(name)).collect(Collectors.toList());
 	}
 
 	@Override
