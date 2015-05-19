@@ -14,13 +14,13 @@ public interface CustomerServiceInterface {
 	List<Customer> findByName(String name);
 
 	/**
-	 * Finds all customers such that the value of filed with name given by fieldName is equal to given value.
+	 * Finds all customers such that the value of field with name given by fieldName is equal to given value.
 	 * 
 	 * @param fieldName
 	 * @param value
 	 * @return
 	 */
-	List<Customer> findByField(String fieldName, Object value);
+	List<Customer> findByField(String fieldName, Object value) throws NoSuchFieldException;
 
 	/**
 	 * Finds all customers who bought more than a given number of products.

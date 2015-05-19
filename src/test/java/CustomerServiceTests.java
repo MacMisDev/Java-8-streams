@@ -28,4 +28,12 @@ public class CustomerServiceTests {
 		assertEquals(1, res.size());
 	}
 
+	@Test
+    public void testCustomersWhoBoughtMoreThan(){
+        List<Customer> res = cs.customersWhoBoughtMoreThan(4);
+
+        assertNotNull("Result can't be null", res);
+        assertEquals(3, res.size());
+    }
+
 }
