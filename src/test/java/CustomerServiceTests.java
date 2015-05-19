@@ -79,6 +79,15 @@ public class CustomerServiceTests {
 
 	}
 
+	@Test
+	public void testWasProductBought(){
+		Product p = new Product(10, "Product: 10", 1);
+		Product pp = new Product(10, "Product: 88", 1);
+
+		assertEquals(true, cs.wasProductBought(p));
+		assertNotEquals(true, cs.wasProductBought(pp));
+	}
+
 
 
 

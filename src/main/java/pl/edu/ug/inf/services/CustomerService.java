@@ -57,8 +57,12 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public boolean wasProductBought(Product p) {
-		// TODO Auto-generated method stub
-		return false;
+	/*	if(customers.stream().filter( c -> c.getBoughtProducts().contains(p) ).count() > 0){
+			return true;
+		}else{
+			return false;
+		}*/
+		return customers.stream().filter(c -> c.getBoughtProducts().stream().filter(pr -> pr.equals(p)).count() > 0).collect(Collectors.toList()).size() > 0;
 	}
 
 	@Override
