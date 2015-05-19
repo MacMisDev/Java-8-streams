@@ -86,6 +86,13 @@ public interface CustomerServiceInterface {
 	 * @return
 	 */
 	int countCustomersWhoBought(Product p);
+
+	/**
+	 * Return customers
+	 *
+	 * @return
+	 */
+	List<Customer> getCustomers();
 	
 	
 }

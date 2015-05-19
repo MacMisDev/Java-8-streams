@@ -42,7 +42,7 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public void addProductToAllCustomers(Product p) {
-		// TODO Auto-generated method stub
+		customers.stream().forEach( c -> c.getBoughtProducts().add(p));
 
 	}
 
@@ -76,4 +76,7 @@ public class CustomerService implements CustomerServiceInterface {
 		return 0;
 	}
 
+	public List<Customer> getCustomers() {
+		return customers;
+	}
 }
