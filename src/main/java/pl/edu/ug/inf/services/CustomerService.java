@@ -21,7 +21,7 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public List<Customer> findByField(String fieldName, Object value) {
-		// TODO Auto-generated method stub
+		//todo
 		return null;
 	}
 
@@ -62,7 +62,7 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public List<Product> mostPopularProduct() {
-		// TODO Auto-generated method stub
+		//todo
 		return null;
 	}
 
