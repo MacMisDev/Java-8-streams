@@ -60,9 +60,23 @@ public class CustomerServiceTests {
 	public void testAddProductToAllCustomers(){
 		int boughtProducts = list.stream().mapToInt( c -> c.getBoughtProducts().size() ).sum();
 		cs.addProductToAllCustomers(new Product(10, "Product : 10", 0.57));
-		int boughtProductsAfterPromotion = cs.getCustomers().stream().mapToInt( c -> c.getBoughtProducts().size() ).sum();
+		int boughtProductsAfterPromotion = cs.getCustomers().stream().mapToInt(c -> c.getBoughtProducts().size()).sum();
 
 		assertEquals(boughtProducts+10, boughtProductsAfterPromotion);
+	}
+
+	@Test
+	public void testAvgOrders(){
+		double avgOrder = list.stream().mapToDouble( c -> c.getBoughtProducts().stream().mapToDouble( Product::getPrice ).sum() ).sum() / list.size();
+		double res = cs.avgOrders(true);
+
+		assertEquals(avgOrder, res, 0.01);
+
+		double avgOrderWithFalse = list.stream().filter( c -> c.getBoughtProducts().size() > 0 ).mapToDouble( cs -> cs.getBoughtProducts().stream().mapToDouble( Product::getPrice ).sum() ).sum() / list.stream().filter( c -> c.getBoughtProducts().size() > 0).collect(Collectors.toList()).size();
+		double resFalse = cs.avgOrders(false);
+
+		assertEquals(avgOrderWithFalse, resFalse, 0.01);
+
 	}
 
 

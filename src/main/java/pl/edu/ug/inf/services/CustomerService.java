@@ -48,8 +48,11 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public double avgOrders(boolean includeEmpty) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(includeEmpty){
+			return customers.stream().mapToDouble( c -> c.getBoughtProducts().stream().mapToDouble( Product::getPrice ).sum() ).sum() / customers.size();
+		}else{
+			return customers.stream().filter( c -> c.getBoughtProducts().size() > 0 ).mapToDouble( cs -> cs.getBoughtProducts().stream().mapToDouble( Product::getPrice ).sum() ).sum() / customers.stream().filter( c -> c.getBoughtProducts().size() > 0).collect(Collectors.toList()).size();
+		}
 	}
 
 	@Override
