@@ -72,9 +72,9 @@ public class CustomerService implements CustomerServiceInterface {
 	}
 
 	@Override
-	public int countCustomersWhoBought(Product p) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int countCustomersWhoBought(Product product) {
+		//todo not working
+		return customers.stream().filter(c -> c.getBoughtProducts().stream().filter(p -> p.equals(product)).count() > 0 ).collect(Collectors.toList()).size();
 	}
 
 	public List<Customer> getCustomers() {

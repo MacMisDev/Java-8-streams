@@ -98,6 +98,21 @@ public class CustomerServiceTests {
 		Product product = new Product(8, "Product: 8", 0.8);
 
 		assertEquals(3, cs.countBuys(product));
+
+		cs.addProductToAllCustomers(product);
+
+		assertEquals(13, cs.countBuys(product));
+	}
+
+	@Test
+	public void testCountCustomersWhoBought(){
+		Product product = new Product(8, "Product: 8", 0.8);
+
+		assertEquals(3, cs.countBuys(product));
+
+		cs.addProductToAllCustomers(product);
+
+		assertEquals(10, cs.countBuys(product));
 	}
 
 
