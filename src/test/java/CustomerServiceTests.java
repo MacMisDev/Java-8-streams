@@ -10,6 +10,7 @@ import pl.edu.ug.inf.services.CustomerServiceInterface;
 import java.util.List;
 
 
+
 public class CustomerServiceTests {
 
 	private CustomerServiceInterface cs;
@@ -35,5 +36,19 @@ public class CustomerServiceTests {
         assertNotNull("Result can't be null", res);
         assertEquals(3, res.size());
     }
+
+    @Test
+    public void testCustomersWhoSpentMoreThan(){
+		List<Customer> res = cs.customersWhoSpentMoreThan(2);
+
+		assertNotNull("Result can't be null", res);
+		assertEquals(4, res.size());
+	}
+
+
+
+
+
+
 
 }
