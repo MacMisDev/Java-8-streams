@@ -37,8 +37,7 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public List<Customer> customersWithNoOrders() {
-		// TODO Auto-generated method stub
-		return null;
+		return customers.stream().filter( c -> c.getBoughtProducts().size() == 0 ).collect(Collectors.toList());
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import pl.edu.ug.inf.services.CustomerService;
 import pl.edu.ug.inf.services.CustomerServiceInterface;
 
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 
 public class CustomerServiceTests {
@@ -43,6 +43,14 @@ public class CustomerServiceTests {
 
 		assertNotNull("Result can't be null", res);
 		assertEquals(4, res.size());
+	}
+
+	@Test
+	public void testCustomersWithNoOrders(){
+		List<Customer> res = cs.customersWithNoOrders();
+
+		assertNotNull("Result can't be null", res);
+		assertEquals(3, res.size());
 	}
 
 
