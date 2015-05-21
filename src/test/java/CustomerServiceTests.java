@@ -105,7 +105,11 @@ public class CustomerServiceTests {
 
 	@Test
 	public void testMostPopularProduct(){
+        List<Product> mProducts = cs.mostPopularProduct();
 
+        assertNotNull(mProducts);
+        //Product: 4 jest najczêstszym produktem (patrz dzia³anie Data Producera)
+        assertEquals("Product: 4", mProducts.get(0).getDescription());
 	}
 
 	@Test

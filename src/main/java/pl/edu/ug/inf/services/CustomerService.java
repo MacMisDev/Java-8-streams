@@ -1,7 +1,9 @@
 package pl.edu.ug.inf.services;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import pl.edu.ug.inf.entities.Product;
@@ -71,7 +73,19 @@ public class CustomerService implements CustomerServiceInterface {
 	@Override
 	public List<Product> mostPopularProduct() {
 		//todo
-		return null;
+        Map<Product, Long> res = customers.stream().flatMap( c -> c.getBoughtProducts().stream()).collect(Collectors.groupingBy(p -> p, Collectors.counting()));
+        List<Product> result = new ArrayList<>();
+        Long maxValue = null;
+        for(Map.Entry<Product, Long> p : res.entrySet()){
+            if(maxValue == null || maxValue < p.getValue()){
+                maxValue = p.getValue();
+                result.clear();
+                result.add(p.getKey());
+            }else if(maxValue == p.getValue()){
+                result.add(p.getKey());
+            }
+        }
+        return result;
 	}
 
 	@Override
