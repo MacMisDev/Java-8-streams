@@ -8,6 +8,7 @@ import pl.edu.ug.inf.entities.Product;
 import pl.edu.ug.inf.services.CustomerService;
 import pl.edu.ug.inf.services.CustomerServiceInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,6 +32,20 @@ public class CustomerServiceTests {
 		assertNotNull("Result can't be null", res);
 		assertEquals(1, res.size());
 	}
+
+	@Test
+	public void testFindByField(){
+        int v = 1;
+        List<Customer> res;
+        try {
+            res = cs.findByField("id", v);
+        } catch (NoSuchFieldException e) {
+            res = new ArrayList<>();
+        }
+
+        assertNotNull("Result can't be null", res);
+        assertEquals(1, res.size());
+    }
 
 	@Test
     public void testCustomersWhoBoughtMoreThan(){

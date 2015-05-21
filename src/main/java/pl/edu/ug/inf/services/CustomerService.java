@@ -1,5 +1,6 @@
 package pl.edu.ug.inf.services;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,8 +22,15 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public List<Customer> findByField(String fieldName, Object value) {
-		//todo
-		return null;
+		return customers.stream().filter( c -> {
+			try {
+				Field f = c.getClass().getDeclaredField(fieldName);
+				f.setAccessible(true);
+				return f.get(c).equals(value);
+			} catch (NoSuchFieldException | IllegalAccessException e) {
+				return false;
+			}
+		} ).collect(Collectors.toList());
 	}
 
 	@Override
